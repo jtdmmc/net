@@ -1,0 +1,61 @@
+﻿<UserControl x:Class="MT.PrismApp.ModulePowerMgr.Views.UserMgrView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:MT.PrismApp.ModulePowerMgr.Views"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="1200"
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:hc="https://handyorg.github.io/handycontrol">
+    <Grid Margin="0" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <Button Width="100"  Height="24" HorizontalAlignment="Right"
+                Content="添加账户"   Margin="0 0 20 0"
+                Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl},Path=  DataContext.AddAcountCmd}" />
+
+        <DataGrid IsReadOnly="True" Margin="0" Grid.Row="1"  HorizontalAlignment="Stretch" 
+                  HeadersVisibility="All" RowHeaderWidth="60"  AutoGenerateColumns="False" ItemsSource="{Binding CurrentPageUsers}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="1*" Binding="{Binding UniqueName}" Header="用户名"/>
+                <DataGridTextColumn Width="2*" CanUserResize="True" 
+                                    Binding="{Binding Roles , Converter={ StaticResource RolesConverter}}" Header="角色"/>
+                <DataGridCheckBoxColumn Width="100" CanUserResize="False" Binding="{Binding IsEnabled, Mode=TwoWay}" Header="启用"/>
+                <DataGridTextColumn Width="1*" Binding="{Binding Remark}" Header="备注"/>
+                <DataGridTemplateColumn Width="auto" CanUserResize="False" Header="操作"  >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+
+                                <Button Width="100" Height="32" Content="编辑"  
+                                        Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl},Path=  DataContext.EditAcountCmd}" 
+                                        CommandParameter="{Binding Item,RelativeSource={RelativeSource AncestorType=DataGridRow}}"/>
+                                <Button Width="100" Height="32" Content="删除"  
+                                        Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl},Path=  DataContext.DeleteAcountCmd}" 
+                                        CommandParameter="{Binding Item,RelativeSource={RelativeSource AncestorType=DataGridRow}}"/>
+                                <Button Width="100" Height="32" Content="修改密码"  
+                                        Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl},Path=  DataContext.ChangePasswordCmd}" 
+                                        CommandParameter="{Binding Item,RelativeSource={RelativeSource AncestorType=DataGridRow}}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <hc:Pagination  Grid.Row="2"  HorizontalAlignment="Right"  Margin="0 0 20 0"
+                        DataCountPerPage="{Binding PageSize}"  
+                        MaxPageCount="{Binding PageCount}"  
+                        PageIndex="{Binding PageIndex}">
+            <hc:Interaction.Triggers>
+                <hc:EventTrigger EventName="PageUpdated">
+                    <hc:EventToCommand Command="{Binding PageUpdatedCmd}" PassEventArgsToCommand="True" />
+                </hc:EventTrigger>
+            </hc:Interaction.Triggers>
+        </hc:Pagination>
+    </Grid>
+</UserControl>

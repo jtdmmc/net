@@ -1,0 +1,1 @@
+thrift-0.11.0.exe --gen csharp:hashcode,serial Services.thrift

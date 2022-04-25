@@ -1,0 +1,127 @@
+﻿<UserControl x:Class="CanvasDrawing.DrawingTool.StretchingBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CanvasDrawing.DrawingTool"
+             mc:Ignorable="d" Panel.ZIndex="99"
+             d:DesignHeight="200" d:DesignWidth="200">
+    <Grid x:Name="mainGrid">
+        <Rectangle  x:Name="rect"  Fill="Transparent" StrokeThickness="2"  Stroke="#1A6AAB"   StrokeDashArray="4" 
+                    MouseLeftButtonDown="rect_MouseLeftButtonDown"
+                    MouseLeftButtonUp="rect_MouseLeftButtonUp"
+                    MouseMove="rect_MouseMove" />
+
+        <!--第一排三个-->
+        <Rectangle x:Name="rect1"  StrokeThickness="1"  Stroke="Black" Fill="White"
+                    Width="12" Height="12"  Margin="-6 -6" Cursor="SizeNWSE"
+                    HorizontalAlignment="Left" VerticalAlignment="Top" 
+                    MouseLeftButtonDown="rect1_MouseLeftButtonDown"
+                    MouseLeftButtonUp="rect1_MouseLeftButtonUp"
+                    MouseMove="rect1_MouseMove" >
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="1"></ScaleTransform>
+                    <TranslateTransform X="0" Y="0"></TranslateTransform>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+
+        <Rectangle x:Name="rect2" StrokeThickness="1"  Stroke="Black" Fill="White"
+                    Width="12" Height="12"  Margin="-6 -6" Cursor="SizeNS"
+                    HorizontalAlignment="Center" VerticalAlignment="Top"
+                    MouseLeftButtonDown="rect2_MouseLeftButtonDown"
+                    MouseLeftButtonUp="rect2_MouseLeftButtonUp"
+                    MouseMove="rect2_MouseMove" >
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="1"></ScaleTransform>
+                    <TranslateTransform X="0" Y="0"></TranslateTransform>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+
+        <Rectangle  x:Name="rect3" StrokeThickness="1"  Stroke="Black" Fill="White"
+                    Width="12" Height="12"  Margin="-6 -6" Cursor="SizeNESW"
+                    HorizontalAlignment="Right" VerticalAlignment="Top"
+                    MouseLeftButtonDown="rect3_MouseLeftButtonDown"
+                    MouseLeftButtonUp="rect3_MouseLeftButtonUp"
+                    MouseMove="rect3_MouseMove" >
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="1"></ScaleTransform>
+                    <TranslateTransform X="0" Y="0"></TranslateTransform>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <!--第二排二个-->
+        <Rectangle x:Name="rect4"  StrokeThickness="1"  Stroke="Black" Fill="White"
+                    Width="12" Height="12"  Margin="-6 -6" Cursor="SizeWE"
+                    HorizontalAlignment="Left" VerticalAlignment="Center" 
+                    MouseLeftButtonDown="rect4_MouseLeftButtonDown"
+                    MouseLeftButtonUp="rect4_MouseLeftButtonUp"
+                    MouseMove="rect4_MouseMove" >
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="1"></ScaleTransform>
+                    <TranslateTransform X="0" Y="0"></TranslateTransform>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="rect5" StrokeThickness="1"  Stroke="Black" Fill="White"
+                    Width="12" Height="12"  Margin="-6 -6" Cursor="SizeWE"
+                    HorizontalAlignment="Right" VerticalAlignment="Center"
+                    MouseLeftButtonDown="rect5_MouseLeftButtonDown"
+                    MouseLeftButtonUp="rect5_MouseLeftButtonUp"
+                    MouseMove="rect5_MouseMove" >
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="1"></ScaleTransform>
+                    <TranslateTransform X="0" Y="0"></TranslateTransform>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <!--第三排三个-->
+        <Rectangle x:Name="rect6"  StrokeThickness="1"  Stroke="Black" Fill="White"
+                    Width="12" Height="12"  Margin="-6 -6" Cursor="SizeNESW"
+                    HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                    MouseLeftButtonDown="rect6_MouseLeftButtonDown"
+                    MouseLeftButtonUp="rect6_MouseLeftButtonUp"
+                    MouseMove="rect6_MouseMove" >
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="1"></ScaleTransform>
+                    <TranslateTransform X="0" Y="0"></TranslateTransform>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+
+        <Rectangle  x:Name="rect7" StrokeThickness="1"  Stroke="Black" Fill="White"
+                    Width="12" Height="12"  Margin="-6 -6" Cursor="SizeNS"
+                    HorizontalAlignment="Center" VerticalAlignment="Bottom" 
+                    MouseLeftButtonDown="rect7_MouseLeftButtonDown"
+                    MouseLeftButtonUp="rect7_MouseLeftButtonUp"
+                    MouseMove="rect7_MouseMove" >
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="1"></ScaleTransform>
+                    <TranslateTransform X="0" Y="0"></TranslateTransform>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+
+        <Rectangle  x:Name="rect8" StrokeThickness="1"  Stroke="Black" Fill="White"
+                    Width="12" Height="12"  Margin="-6 -6" Cursor="SizeNWSE"
+                    HorizontalAlignment="Right" VerticalAlignment="Bottom" 
+                    MouseLeftButtonDown="rect8_MouseLeftButtonDown"
+                    MouseLeftButtonUp="rect8_MouseLeftButtonUp"
+                    MouseMove="rect8_MouseMove" >
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="1"></ScaleTransform>
+                    <TranslateTransform X="0" Y="0"></TranslateTransform>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+    </Grid>
+</UserControl>

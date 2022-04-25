@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+	<AppendTargetFrameworkToOutputPath>Flase</AppendTargetFrameworkToOutputPath>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-WorkerService-5867AF68-EC59-4745-9F47-875A04621862</UserSecretsId>
+    <RootNamespace>DotnetSoftwarePlatform.WorkerService</RootNamespace>
+    <Platforms>AnyCPU;ARM32;x64</Platforms>
+    <BaseOutputPath>.\..\..\Build\Server</BaseOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.3.0" />
+    <PackageReference Include="log4net" Version="2.0.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\shared\AutofacLogging\AutofacLogging.csproj" />
+    <ProjectReference Include="..\Api.Server\Api.Server.csproj" />
+    <ProjectReference Include="..\DAL.EF\DAL.EF.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+	  <None Update="DotnetSoftwarePlatform.log4net.config">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+  </ItemGroup>
+</Project>

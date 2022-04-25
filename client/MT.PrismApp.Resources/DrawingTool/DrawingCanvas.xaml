@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="CanvasDrawing.DrawingTool.DrawingCanvas"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CanvasDrawing.DrawingTool"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid  x:Name="gdMain"  Background="Transparent">
+        <Grid.Resources>
+            <TransformGroup x:Key="Imageview">
+            </TransformGroup>
+        </Grid.Resources>
+        <ScrollViewer  HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <!--为什么需要CTT和CVS  因为界面操作有两种：
+                        一个是在画布上作图，一个是拖动缩放画布；
+                        画图是以画布CVS作为背景 而拖动画布是在内容控件CTT里面对画布进行线性和差值变换-->
+            <ContentControl x:Name="CCL">
+                <Canvas x:Name="CVS"  Background="Transparent" RenderTransform="{StaticResource Imageview}"
+                            MouseLeftButtonDown="CVS_MouseLeftButtonDown"
+                            MouseLeftButtonUp="CVS_MouseLeftButtonUp"
+                            MouseRightButtonDown="CVS_MouseRightButtonDown" 
+                            MouseMove="CVS_MouseMove"
+                            MouseWheel="CVS_MouseWheel">
+                    <Image Name="IMG"  Stretch="None"  Tag="reserve"   >
+                    </Image>
+                </Canvas>
+            </ContentControl>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

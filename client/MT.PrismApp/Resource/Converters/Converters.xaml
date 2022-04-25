@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local ="clr-namespace:MT.PrismApp.Resource.Converters">
+
+    <local:RolesConverter x:Key="RolesConverter" />
+    <local:PowersConverter x:Key="PowersConverter" />
+    <!-- 计算节点缩进的转换器 -->
+    <local:IndentConverter Indent="30" MarginLeft="30" x:Key="IndentConverter" />
+</ResourceDictionary>

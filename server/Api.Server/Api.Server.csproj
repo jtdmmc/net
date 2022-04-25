@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>DotnetSoftwarePlatform.Api.Server</RootNamespace>
+    <Platforms>AnyCPU;ARM32;x64</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\shared\Api.Thrift\Api.Thrift.csproj" />
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Thrift">
+      <HintPath>..\..\packages\thrift-csharp.0.10.0\lib\Thrift.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
