@@ -1,0 +1,25 @@
+thrift框架使用
+
+选用版本：0.11.0
+
+注意事项：
+1、c#版本的代码生成支持csharp（.NET framework >= 3.5）、netcore以及netstd框架。
+2、最新版thrift只支持netstd。
+3、最新版thrift生成的代码只有异步接口，没有同步接口。
+
+文件介绍
+1、thrift编译器：thrift-0.11.0.exe。
+2、thrift源码：thrift-0.11.0.tar.gz ；解压到thrift-0.11.0，其内部有compiler和lib文件夹，前者是编译器源码，后者是客户端库源码。
+3、c#版本的客户端源码：thrift-0.11.0\lib\csharp，可以从此编译出客户端库，供后续开发使用。
+4、Thrift45.dll：由源码编译出来的客户端库。
+5、IDL目录：存放thrift接口描述文件。
+6、out目录：thrift编译器通过编译xx.thrift文件所生成的源码文件。
+
+编译thrift文件
+thrift -r  -o <output directory> --gen <language> <thrift filename> 
+thrift -r -o out --gen csharp  ./IDL/account.thrift
+-r（recurse的首字母）表示递归生成被包含的文件
+--gen 指定生成语言
+-o 指定输出目录
+
+
